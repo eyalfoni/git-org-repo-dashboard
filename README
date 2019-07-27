@@ -1,0 +1,22 @@
+Steps to start program:
+
+Make sure you have an environment variable with your github token:
+
+export GIT_ORG_DASHBOARD_API_TOKEN="[YOUR GITHUB API TOKEN]"
+
+Open three terminals and do the following
+1. Activate venv: . venv/bin/activate
+2. python3 [git_fetching_service.py | db_service.py |  web_server_service.py] respectively
+(one in each terminal)
+3. Go to http://127.0.0.1:5000/org/[organization-name]
+
+I used a micro services approach in architecting this web app. Separate services for the
+web server that interfaces with the UI, a service for database interactions (find and insert),
+and one for fetching data from the github api. Each separate service can be scaled according
+to usage in production. They all operate separately from one another.
+
+Note for future improvement (due to time constraints):
+    The sorting done in web_server_service.py is not ideal. Two solutions come to mind.
+    The first is have another micro service that grabs the data from the db and sorts it.
+    Another is to design the db in an easy way and perform .sort() on the mongo finds.
+    I ran out of time to do the latter but would have tried that first.

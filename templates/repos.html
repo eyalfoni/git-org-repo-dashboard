@@ -1,0 +1,29 @@
+<!doctype html>
+<div>
+<div class="abcd">
+    <h1>Stars:</h1>
+    {% for star in stars %}
+        <p>{{star[0]}}, count: {{star[1]}}</p>
+    {% endfor %}
+</div>
+
+
+<div class="abcd">
+    <h1>Forks:</h1>
+    {% for fork in forks %}
+        <p>{{fork[0]}}, count: {{fork[1]}}</p>
+    {% endfor %}
+</div>
+
+
+<div class="abcd">
+    <h1>Contributors:</h1>
+    {% for contr in contributors %}
+        <p>{{contr[0]}}, count: {{contr[1]}}</p>
+    {% endfor %}
+</div>
+</div>
+
+<style>
+.abcd {display: inline-block;}
+</style>
